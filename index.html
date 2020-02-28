@@ -1,0 +1,28 @@
+  
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <h1 id="app">Server response: {{response}}</h1>
+    <script>
+        var vueapp = new Vue({
+            el: '#app',
+            data: {
+                response: ''
+            },
+        })
+
+        fetch('http://localhost:3000').then(function (response) {
+            response.text().then(function (text) {
+                // alert(text);
+                vueapp.response = text;
+            });
+        });
+    </script>
+</body>
+
+</html>
